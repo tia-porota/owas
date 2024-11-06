@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://mt7f4qiv6yil"]
+
+[ext_resource type="Script" path="res://scripts/bracite.gd" id="1_bxcsw"]
+[ext_resource type="Texture2D" uid="uid://np7gxvh02hw5" path="res://res/arm.png" id="2_nrmlc"]
+
+[node name="armRight" type="Node2D"]
+script = ExtResource("1_bxcsw")
+
+[node name="VSlider" type="VSlider" parent="."]
+visible = false
+offset_left = 74.0
+offset_top = 31.0
+offset_right = 135.0
+offset_bottom = 227.0
+max_value = 180.0
+step = 10.0
+scrollable = false
+
+[node name="Arm" type="Sprite2D" parent="."]
+position = Vector2(21, 8)
+texture = ExtResource("2_nrmlc")
+centered = false
+offset = Vector2(-65, -25)
+flip_h = true
+flip_v = true
+
+[node name="Button" type="Button" parent="Arm"]
+offset_left = -34.0
+offset_top = -21.0
+offset_right = 32.0
+offset_bottom = 233.0
+action_mode = 0
+flat = true
+
+[connection signal="value_changed" from="VSlider" to="." method="_on_v_slider_value_changed"]
+[connection signal="pressed" from="Arm/Button" to="." method="_on_button_pressed"]

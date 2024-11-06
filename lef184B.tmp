@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://exepjt6co1g3"]
+
+[ext_resource type="Texture2D" uid="uid://dtllmoqeiy61o" path="res://res/leg.png" id="1_4oiuk"]
+[ext_resource type="Script" path="res://scripts/left_leg.gd" id="1_hywlu"]
+
+[node name="leftLeg" type="Node2D"]
+script = ExtResource("1_hywlu")
+
+[node name="VSlider" type="VSlider" parent="."]
+offset_left = 33.0
+offset_top = 138.0
+offset_right = 49.0
+offset_bottom = 276.0
+max_value = 2.0
+
+[node name="Leg" type="Sprite2D" parent="."]
+position = Vector2(130, 209)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4oiuk")
+
+[connection signal="value_changed" from="VSlider" to="." method="_on_v_slider_value_changed"]

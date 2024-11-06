@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://doltlookeuwar"]
+
+[ext_resource type="Script" path="res://scripts/torso.gd" id="1_3q5so"]
+[ext_resource type="Texture2D" uid="uid://cj6j5h88p1e7h" path="res://res/tor.png" id="1_tukya"]
+[ext_resource type="PackedScene" uid="uid://mt7f4qiv6yil" path="res://scenes/bracite2.tscn" id="2_2ikt5"]
+[ext_resource type="PackedScene" uid="uid://qubvt7rgwxmp" path="res://scenes/bracite.tscn" id="3_cuyk8"]
+[ext_resource type="Texture2D" uid="uid://by7kq1rn8wxlp" path="res://res/hair.png" id="5_pxhwn"]
+[ext_resource type="Texture2D" uid="uid://cca2jmmdi06wa" path="res://res/face.png" id="6_6sv0c"]
+
+[node name="torso" type="Node2D"]
+script = ExtResource("1_3q5so")
+
+[node name="Tor" type="Sprite2D" parent="."]
+position = Vector2(234, 247)
+texture = ExtResource("1_tukya")
+offset = Vector2(0, -75)
+
+[node name="armRight" parent="Tor" instance=ExtResource("2_2ikt5")]
+z_index = 2
+position = Vector2(63, -149)
+
+[node name="armLeft" parent="Tor" instance=ExtResource("3_cuyk8")]
+z_index = 2
+position = Vector2(-81, -141)
+
+[node name="Button" type="Button" parent="Tor"]
+offset_left = -47.0
+offset_top = -186.0
+offset_right = 56.0
+offset_bottom = 35.0
+flat = true
+
+[node name="Hair" type="Sprite2D" parent="Tor"]
+z_index = -1
+position = Vector2(-11.55, -186.7)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_pxhwn")
+
+[node name="Face" type="Sprite2D" parent="Tor"]
+position = Vector2(-11.55, -184.7)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_6sv0c")
+
+[node name="HSlider" type="HSlider" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = -0.346
+anchor_top = -0.136
+anchor_right = -0.346
+anchor_bottom = -0.136
+offset_left = 419.0
+offset_top = 186.0
+offset_right = 619.0
+offset_bottom = 202.0
+max_value = 20.0
+
+[connection signal="rightValue" from="Tor/armRight" to="." method="_on_arm_right_right_value"]
+[connection signal="rightValue" from="Tor/armLeft" to="." method="_on_arm_left_right_value"]
+[connection signal="pressed" from="Tor/Button" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]

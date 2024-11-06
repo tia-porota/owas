@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://d182ssf3r50ej"]
+
+[ext_resource type="Texture2D" uid="uid://y6ebskekblj3" path="res://res/sk.png" id="1_3wq35"]
+[ext_resource type="Script" path="res://scripts/fullbody.gd" id="1_cb6mx"]
+[ext_resource type="PackedScene" uid="uid://doltlookeuwar" path="res://scenes/torso.tscn" id="2_e4jld"]
+[ext_resource type="PackedScene" uid="uid://exepjt6co1g3" path="res://scenes/left_leg.tscn" id="3_op68u"]
+[ext_resource type="PackedScene" uid="uid://cakregr5qafkc" path="res://scenes/right_leg.tscn" id="4_mf0cr"]
+[ext_resource type="Script" path="res://scripts/labelWeight.gd" id="6_nv8ht"]
+
+[node name="fullbody" type="Node2D"]
+script = ExtResource("1_cb6mx")
+
+[node name="torso" parent="." instance=ExtResource("2_e4jld")]
+position = Vector2(-72, 97)
+
+[node name="leftLeg" parent="." instance=ExtResource("3_op68u")]
+z_index = -2
+position = Vector2(93, 366)
+scale = Vector2(1.3, 1.3)
+
+[node name="rightLeg" parent="." instance=ExtResource("4_mf0cr")]
+z_index = -2
+position = Vector2(153, 370)
+scale = Vector2(1.3, 1.3)
+
+[node name="HSlider" type="HSlider" parent="."]
+offset_left = 28.0
+offset_top = 585.0
+offset_right = 296.0
+offset_bottom = 616.0
+max_value = 20.0
+
+[node name="Label" type="Label" parent="HSlider"]
+layout_mode = 0
+offset_left = 137.0
+offset_top = -20.0
+offset_right = 192.0
+offset_bottom = 3.0
+text = "0kg"
+script = ExtResource("6_nv8ht")
+
+[node name="Label2" type="Label" parent="HSlider"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = -19.0
+offset_right = 123.0
+offset_bottom = 4.0
+text = "Carga:"
+
+[node name="Sk" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(165, 403)
+scale = Vector2(0.809091, 0.809091)
+texture = ExtResource("1_3wq35")
+
+[connection signal="armValue" from="torso" to="." method="_on_torso_arm_value"]
+[connection signal="valueTorso" from="torso" to="." method="_on_torso_value_torso"]
+[connection signal="lLeg" from="leftLeg" to="." method="_on_left_leg_l_leg"]
+[connection signal="lLeg" from="rightLeg" to="." method="_on_right_leg_l_leg"]
+[connection signal="value_changed" from="HSlider" to="HSlider/Label" method="_on_h_slider_value_changed"]
+[connection signal="sWeight" from="HSlider/Label" to="." method="_on_label_s_weight"]

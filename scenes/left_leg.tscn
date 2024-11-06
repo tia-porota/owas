@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://exepjt6co1g3"]
+
+[ext_resource type="Texture2D" uid="uid://dtllmoqeiy61o" path="res://res/leg.png" id="1_4oiuk"]
+[ext_resource type="Script" path="res://scripts/left_leg.gd" id="1_hywlu"]
+
+[node name="leftLeg" type="Node2D"]
+script = ExtResource("1_hywlu")
+
+[node name="VSlider" type="VSlider" parent="."]
+visible = false
+offset_left = -43.0
+offset_top = -4.0
+offset_right = -27.0
+offset_bottom = 134.0
+max_value = 2.0
+
+[node name="Leg" type="Sprite2D" parent="."]
+position = Vector2(27, 70)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4oiuk")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 53.0
+offset_bottom = 136.0
+flat = true
+
+[connection signal="value_changed" from="VSlider" to="." method="_on_v_slider_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
