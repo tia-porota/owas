@@ -20,19 +20,19 @@ scale = Vector2(0.9, 0.9)
 anchors_preset = -1
 anchor_right = 2.263
 anchor_bottom = 1.0
-offset_left = 778.0
-offset_top = 155.0
-offset_right = 934.0
-offset_bottom = 254.0
+offset_left = 875.0
+offset_top = 137.0
+offset_right = 1031.0
+offset_bottom = 236.0
 text = "1"
 label_settings = SubResource("LabelSettings_btejk")
 horizontal_alignment = 1
 
 [node name="desc" type="Label" parent="."]
-offset_left = 705.0
-offset_top = 273.0
-offset_right = 1013.0
-offset_bottom = 523.0
+offset_left = 802.0
+offset_top = 255.0
+offset_right = 1110.0
+offset_bottom = 505.0
 text = "Postura normal y natural sin efectos dañinos en el sistema músculo esquelético.
 
 No requiere acción.

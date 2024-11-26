@@ -10,7 +10,16 @@ config_version=5
 
 [application]
 
-config/name="owas"
+config/name="OWAS"
+config/description="Simple program to calculate OWAS ergonomy."
+config/version="0.1a"
 run/main_scene="res://scenes/main_scene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.703459, 0.419072, 0.58076, 1)
+boot_splash/image="res://icon.png"
+boot_splash/use_filter=false
+config/icon="res://icon.png"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.622439, 0.318426, 0.507788, 1)
